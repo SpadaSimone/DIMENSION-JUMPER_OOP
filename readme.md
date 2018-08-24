@@ -3,7 +3,7 @@
 *This project is my personal learning session, by writing this software i learned some basics skills in AngularJS, HTML and CSS development. This is the second learning session and i'm going to switch from SP to OOP*
 
 **Getting started:**
-Pull this project or download it from https://github.com/SpadaSimone/DimensionJumper.
+Pull this project or download it from https://github.com/SpadaSimone/DIMENSION-JUMPER_OOP.
 Open Terminal in the project folder and run "yarn install".
 Open "main.html" file to run the Game in Google Chrome Browser.
 
