@@ -1,9 +1,9 @@
 {
   "name": "DJ",
   "version": "1.0.0",
-  "description": "Learning Session",
+  "description": "Learning Session_OOP",
   "main": "index.js",
-  "repository": "https://github.com/SpadaSimone/DimensionJumper.git",
+  "repository": "https://github.com/SpadaSimone/DIMENSION-JUMPER_OOP",
   "author": "SpadaSimone <s.spada94@gmail.com>",
   "license": "MIT",
   "dependencies": {
