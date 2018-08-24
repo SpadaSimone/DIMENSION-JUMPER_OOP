@@ -1,6 +1,6 @@
 # DimensionJumper #
 
-*This project is my personal learning session, by writing this software i learned some basics skills in AngularJS, HTML and CSS development.*
+*This project is my personal learning session, by writing this software i learned some basics skills in AngularJS, HTML and CSS development. This is the second learning session and i'm going to switch from SP to OOP*
 
 **Getting started:**
 Pull this project or download it from https://github.com/SpadaSimone/DimensionJumper.
