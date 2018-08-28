@@ -7,9 +7,10 @@ var app = angular.module("gamefloor", [])
       this.holyjumps = 3;
     };
 
-    jump(){
-
+    jump(destination){
+      this.position = this.position + destination;
     };
+
     stop(){
 
     };
@@ -29,8 +30,8 @@ var app = angular.module("gamefloor", [])
 
   class platform {
     constructor(){
-      this.min_jump = null;
-      this.max_jump = null;
+      this.min_jump ;
+      this.max_jump ;
       this.checkmin = false;
       this.checkmax = false;
       this.state = 0;
@@ -133,11 +134,23 @@ var app = angular.module("gamefloor", [])
 
   };
 
+  $scope.jumpAndCheck = function(destination){
+    destination = parseInt(destination);
+    $scope.player1.jump(destination);
+    $scope.distance = 0;
+    if($scope.player1.position === $scope.nowplayfield.platforms.length - 1){
+      $window.location.href = 'winner.html';
+    }else if($scope.player1.position < 0 || $scope.player1.position >= $scope.nowplayfield.platforms.length){
+      $window.location.href = 'loser.html';
+    }
+  };
+
   var min = 16;
   var max = 26;
 
   $scope.nowplayfield = new playField;
   $scope.nowplayfield.createplayfield(min, max);
   $scope.nowplayfield.playfieldconfirmer(min, max);
-
+  $scope.player1 = new player;
+  $scope.distance = 0;
 }]);

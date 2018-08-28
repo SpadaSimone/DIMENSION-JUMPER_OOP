@@ -12,27 +12,27 @@
 
 <body ng-app="gamefloor" ng-controller="myCtrl">
 
-  <!-- <div class="bodyBGC" id="all">
+ <div class="bodyBGC" id="all">
 
-    <div class="realtimeButtons">
+    <!-- <div class="realtimeButtons">
     <p class="jbutton" id="realtime_events">
         <input type="submit" value="STOP" id="stopb" name="stopb" disabled ng-click="stop()"></input>
         <input type="submit" value="HOLYJUMP!" id="hj" name="hj" disabled ng-click="holyjump()"></input>
         <input type="submit" value="DimensionalTravel" id="dt" name="dt" ng-click="inverted_Dimension_Travel()"></input>
     </p>
-    </div>
+    </div> -->
 
     <div class="bigbox">
     <div class="playfield">
-      <div ng-repeat="platform in playfield track by $index" class="row">
-        <div ng-if="platform.player==true && platform.blackholevent==false" class="player" id="player"></div>
-        <div ng-if="platform.player==true && platform.blackholevent==false" class="playfield__elementswithplayer">
-          {{platform.min + "-" + platform.max}}
+      <div ng-repeat="platform in nowplayfield.platforms track by $index" class="row">
+        <div ng-if="player1.position == $index" class="player" id="player"></div>
+        <div ng-if="player1.position == $index" class="playfield__elementswithplayer">
+          {{platform.min_jump + "-" + platform.max_jump}}
         </div>
-        <div ng-if="platform.player==false && platform.blackholevent==false" class="playfield__elements">
-          {{platform.min + "-" + platform.max}}
+        <div ng-if="player1.position != $index" class="playfield__elements">
+          {{platform.min_jump + "-" + platform.max_jump}}
         </div>
-        <div ng-if="platform.blackholevent==true" class="container">
+        <!-- <div ng-if="platform.blackholevent==true" class="container">
           <div class="wrapper">
              <div class="blackhole">
                <div class="debris"></div>
@@ -45,28 +45,28 @@
                <div class="debris"></div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
 
     <div class= "instructions">
-      <p ng-bind="'Your position: ' + (ind)"></p>
-      <p>Your destination: {{playfield.length-1}}</p>
-      <p ng-bind="'Holy Jumps: ' + (holyjumpcounter)"></p>
+      <p ng-bind="'Your position: ' + (player1.position)"></p>
+      <p>Your destination: {{nowplayfield.platforms.length-1}}</p>
+      <p ng-bind="'Holy Jumps: ' + (player1.holyjumps)"></p>
     </div>
 
-    <form ng-submit="jumpit(datmuch)" id="jform" >
+    <form ng-submit="jumpAndCheck(distance)" id="jform" >
       <div class="switch" >
 
-        <input name="switch" id="one" type="radio" value="{{playfield[ind].min}}" ng-model="datmuch"></input>
+        <input name="switch" id="one" type="radio" value="{{nowplayfield.platforms[player1.position].min_jump}}" ng-model="distance"></input>
         <label for="one" class="switch__label" >
           <div class="contenitore">
             <div class="ball"></div>
-            <div class="contenuto">{{playfield[ind].min}}</div>
+            <div class="contenuto">{{nowplayfield.platforms[player1.position].min_jump}}</div>
           </div>
         </label>
 
-        <input name="switch" id="two" type="radio" value="0" ng-model="datmuch" checked></input>
+        <input name="switch" id="two" type="radio" value="0" ng-model="distance" checked></input>
           <label for="two" class="switch__label" >
             <div class="contenitore">
               <div class="ball"></div>
@@ -74,11 +74,11 @@
             </div>
           </label>
 
-        <input name="switch" id="three" type="radio" value="{{playfield[ind].max}}" ng-model="datmuch"></input>
+        <input name="switch" id="three" type="radio" value="{{nowplayfield.platforms[player1.position].max_jump}}" ng-model="distance"></input>
         <label for="three" class="switch__label" >
           <div class="contenitore">
             <div class="ball"></div>
-            <div class="contenuto">{{playfield[ind].max}}</div>
+            <div class="contenuto">{{nowplayfield.platforms[player1.position].max_jump}}</div>
           </div>
         </label>
 
@@ -92,6 +92,6 @@
     </form>
 
     </div>
-  </div> -->
+  </div>
 </body>
 </html>
