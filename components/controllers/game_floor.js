@@ -41,6 +41,7 @@ var app = angular.module("gamefloor", [])
   class playField {
     constructor(){
       this.platforms = [];
+      this.gameMode = 0;
     };
 
     randomRange(min, max) {
