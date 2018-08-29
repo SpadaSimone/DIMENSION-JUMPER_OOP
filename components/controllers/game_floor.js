@@ -7,8 +7,11 @@ var app = angular.module("gamefloor", [])
       this.holyjumps = 3;
     };
 
-    jump(destination){
-      this.position = this.position + destination;
+    jump(gameMode, destination){
+      if(gameMode == 0)
+        this.position = this.position + destination;
+      else
+        this.position = this.position - destination;
     };
 
     stop(){
@@ -132,16 +135,40 @@ var app = angular.module("gamefloor", [])
       }
     };
 
+    changeGameMode(){
+      if(this.gameMode == 0){
+        this.gameMode = 1;
+      }else{
+        this.gameMode = 0;
+      }
+    };
+
   };
 
   $scope.jumpAndCheck = function(destination){
     destination = parseInt(destination);
-    $scope.player1.jump(destination);
+    $scope.player1.jump($scope.nowplayfield.gameMode, destination);
     $scope.distance = 0;
     if($scope.player1.position === $scope.nowplayfield.platforms.length - 1){
       $window.location.href = 'winner.html';
     }else if($scope.player1.position < 0 || $scope.player1.position >= $scope.nowplayfield.platforms.length){
       $window.location.href = 'loser.html';
+    }
+  };
+
+  $scope.inverted_Dimension_Travel = function(){
+    var allClass = document.getElementById('all').getAttribute("class");
+    // console.log(allClass);
+    // console.log($scope.gameMode);
+    var all = document.getElementById('all');
+
+    if($scope.nowplayfield.gameMode == 0){
+      all.classList.add('inverted');
+      $scope.nowplayfield.changeGameMode();
+    }
+    else {
+      all.classList.remove('inverted');
+      $scope.nowplayfield.changeGameMode();
     }
   };
 
