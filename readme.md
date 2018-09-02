@@ -1,6 +1,6 @@
 # DimensionJumper #
 
-*This project is my personal learning session, by writing this software i learned some basics skills in AngularJS, HTML and CSS development. This is the second learning session and i'm going to switch from SP to OOP.*
+*This project is my personal learning session, by writing this software i learned some basics skills in AngularJS, HTML and CSS development. This is the second learning session and i'm going to switch from SP to OOP with ES6 classes and MVC pattern.*
 
 **Getting started:**
 Pull this project or download it from https://github.com/SpadaSimone/DIMENSION-JUMPER_OOP.
@@ -21,5 +21,5 @@ To win, the player have to reach the last Dimension (squared unit) without getti
 ## Authors ##
 *Simone Spada*
 
-## Thanks To ##
+##Big Thanks To ##
 *Mattia Colleoni, Alessandro Mariotti, Antonio Visalli*
