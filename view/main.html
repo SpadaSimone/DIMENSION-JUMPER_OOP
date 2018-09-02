@@ -4,35 +4,36 @@
 <head>
   <meta charset="utf-8">
   <script src="../node_modules/angular/angular.min.js"></script>
-  <script src="../components/controllers/game_floor.js"></script>
+  <script src="../components/models/game_models.js"></script>
+  <script src="../components/controllers/gameController.js"></script>
   <link rel="stylesheet" type="text/css" href="../assets/css/styles.css">
   <link rel="stylesheet" type="text/css" href="../assets/css/ToggleSwitch.css">
   <link rel="stylesheet" type="text/css" href="../assets/css/black_Hole.css">
 </head>
 
-<body ng-app="gamefloor" ng-controller="myCtrl">
+<body ng-app="gameController" ng-controller="gameCtrl">
 
  <div class="bodyBGC" id="all">
 
     <div class="realtimeButtons">
     <p class="jbutton" id="realtime_events">
-        <!-- <input type="submit" value="STOP" id="stopb" name="stopb" disabled ng-click="stop()"></input>
-        <input type="submit" value="HOLYJUMP!" id="hj" name="hj" disabled ng-click="holyjump()"></input> -->
-        <input type="submit" value="DimensionalTravel" id="dt" name="dt" ng-click="inverted_Dimension_Travel()"></input>
+        <input type="submit" value="STOP" id="stopb" name="stopb" disabled ng-click="player1.stop()"></input>
+        <input type="submit" value="HOLYJUMP!" id="hj" name="hj" disabled ng-click="holyJump()"></input>
+        <input type="submit" value="DimensionalTravel" id="dt" name="dt" ng-click="nowplayfield.changeGameMode()"></input>
     </p>
     </div>
 
     <div class="bigbox">
     <div class="playfield">
       <div ng-repeat="platform in nowplayfield.platforms track by $index" class="row">
-        <div ng-if="player1.position == $index" class="player" id="player"></div>
-        <div ng-if="player1.position == $index" class="playfield__elementswithplayer">
+        <div ng-if="player1.position == $index && platform.platform_BlackHole.state == 0" class="player" id="player"></div>
+        <div ng-if="player1.position == $index && platform.platform_BlackHole.state == 0" class="playfield__elementswithplayer">
           {{platform.min_jump + "-" + platform.max_jump}}
         </div>
-        <div ng-if="player1.position != $index" class="playfield__elements">
+        <div ng-if="player1.position != $index && platform.platform_BlackHole.state == 0" class="playfield__elements">
           {{platform.min_jump + "-" + platform.max_jump}}
         </div>
-        <!-- <div ng-if="platform.blackholevent==true" class="container">
+        <div ng-if="platform.platform_BlackHole.state == 1" class="container">
           <div class="wrapper">
              <div class="blackhole">
                <div class="debris"></div>
@@ -45,7 +46,7 @@
                <div class="debris"></div>
             </div>
           </div>
-        </div> -->
+        </div>
       </div>
     </div>
 

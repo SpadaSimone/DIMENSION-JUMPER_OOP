@@ -130,6 +130,7 @@ hr{
 
 .player.action {
   animation-name: teleporting;
+  animation-iteration-count: infinite;
   animation-duration: 2s;
 }
 
@@ -162,15 +163,15 @@ hr{
 
 .player.shake{
   animation-name: shaking;
-  animation-iteration-count: 20;
+  animation-iteration-count: infinite;
   animation-duration: 0.5s;
 }
 
-.player.teleshake{
+/* .player.teleshake{
   animation-name: shaking, teleporting;
-  animation-iteration-count: 20;
+  animation-iteration-count: infinite;
   animation-duration: 1s;
-}
+} */
 
 @keyframes shaking{
   0%{
