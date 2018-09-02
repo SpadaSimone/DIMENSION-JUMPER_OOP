@@ -5,12 +5,12 @@ class player {
     this.state = 0;
   };
 
-  jump(gameMode,holuRange){
+  jump(gameMode, destination){
     this.state = 0;
     if(gameMode === 0)
-      this.position = this.position +holuRange;
+      this.position = this.position + destination;
     else
-      this.position = this.position -holuRange;
+      this.position = this.position - destination;
   };
 
   stop(){
