@@ -135,7 +135,7 @@ gameController.controller("gameCtrl", ['$scope', '$timeout', '$window', function
       };
       if(n != o && n === 1 && $scope.player1.holyjumps > 0){
         document.getElementById('hj').removeAttribute("disabled");          //abilita holyjump
-      } else if(n != m){
+      } else if(n != o){
         document.getElementById('hj').setAttribute("disabled","disabled");
       };
     }
