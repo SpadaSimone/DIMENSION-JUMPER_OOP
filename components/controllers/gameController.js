@@ -120,20 +120,22 @@ gameController.controller("gameCtrl", ['$scope', '$timeout', '$window', function
     };
   });
 
-  $scope.$watch("nowplayfield.gameMode", function(n){
+  $scope.$watch("nowplayfield.gameMode", function(n, o){
     if (n == undefined) {
       return;
     };
-    $scope.inverted_Dimension_Travel();
+    if(n != o){
+      $scope.inverted_Dimension_Travel();
+    }
   });
 
-  $scope.$watch("sharedBlackHoleEvent", function(n){
+  $scope.$watch("sharedBlackHoleEvent", function(n, o){
       if (n === undefined) {
         return;
       };
-      if(n === 1 && $scope.player1.holyjumps > 0){
+      if(n != o && n === 1 && $scope.player1.holyjumps > 0){
         document.getElementById('hj').removeAttribute("disabled");          //abilita holyjump
-      } else {
+      } else if(n != m){
         document.getElementById('hj').setAttribute("disabled","disabled");
       };
     }
